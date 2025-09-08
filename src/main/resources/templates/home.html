@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main/css/style.css"> <!-- Внешний файл стилей -->
+    <title>Поиск габаритов </title>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="ad-space"></div> <!-- Место для рекламы -->
+    </header>
+    <main>
+        <section id="intro">
+            <h2>Поиск габаритов </h2>
+            </section>
+        <form action="/api/v1/upload" method="post" enctype="multipart/form-data">
+            <label for="excel-file">Выберите файл:</label>
+            <input type="file" id="excel-file" name="excel-file"><br>
+            <button type="submit">Отправить</button>
+        </form>
+    </main>
+</div>
+</body>
+</html>
