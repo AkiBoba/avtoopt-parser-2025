@@ -1,4 +1,4 @@
-package com.example.armtek_parcer_new.controller;
+package com.example.armtek_parcer_new.aliance.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

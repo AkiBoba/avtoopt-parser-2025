@@ -1,10 +1,8 @@
-package com.example.armtek_parcer_new.controller;
+package com.example.armtek_parcer_new.aliance.controller;
 
 import com.example.armtek_parcer_new.aliance.facade.FacadeAlianceAPI;
-import com.example.armtek_parcer_new.domain.FileLine;
-import com.example.armtek_parcer_new.facade.FacadeAPI;
-import com.example.armtek_parcer_new.service.FileParser;
-import com.example.armtek_parcer_new.service.SiteParser;
+import com.example.armtek_parcer_new.aliance.domain.FileLine;
+import com.example.armtek_parcer_new.aliance.service.FileParser;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 @RequestMapping("/api/v1")
 @Controller

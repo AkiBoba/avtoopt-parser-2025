@@ -22,7 +22,7 @@ public class ApiAllProducersSymbolsUrls {
                 .userAgent(USER_AGENT).get();
         Elements elements = doc.select(".firstLetterFilterRadioGroup");
         elements.forEach(element -> urls.add(BASE_URL + element.text()));
-        System.out.println((long) elements.size());
+//        System.out.println((long) elements.size());
         return urls;
     }
 }

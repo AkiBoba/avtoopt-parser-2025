@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class TextAlianceCleaner {
-    public static String cleanText(String input) {
+    public String cleanText(String input) {
         if (input == null) return "";
 
         return input.chars()

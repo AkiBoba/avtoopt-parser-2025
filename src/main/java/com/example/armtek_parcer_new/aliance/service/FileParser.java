@@ -1,6 +1,6 @@
-package com.example.armtek_parcer_new.service;
+package com.example.armtek_parcer_new.aliance.service;
 
-import com.example.armtek_parcer_new.domain.FileLine;
+import com.example.armtek_parcer_new.aliance.domain.FileLine;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Service;

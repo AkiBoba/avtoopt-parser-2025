@@ -1,4 +1,4 @@
-package com.example.armtek_parcer_new.domain;
+package com.example.armtek_parcer_new.aliance.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
