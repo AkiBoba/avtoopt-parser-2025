@@ -33,22 +33,33 @@ public class FacadeAlianceAPI {
     ApiGetProductsInfoAsync apiGetProductsInfo;
     GoodUrlRepositoryJpa goodUrlRepositoryJpa;
     public void getWorks(List<FileLine> producers) throws IOException, InterruptedException {
-        //Получаем ссылки на все буквы указанные в алфавитном перечне производителей
+        /**
+         * Получаем ссылки на все буквы указанные в алфавитном перечне производителей
+         * */
         List<String> symUrls = symbolsUrls.getAllSymbolsProducersUrls();
-        //Открываем каждую букву и ищем там пагинацию, находим ссылки на все страницы > 1
+        /**
+        Открываем каждую букву и ищем там пагинацию, находим ссылки на все страницы > 1
+        */
         List<String> itUrls = iterateSymbolsAsync.findAllPaginationUris(symUrls);
-        //Объеденяем в один список все ссылки алфавитного указателя с их пагинациями
+        /**
+         *
+         Объеденяем в один список все ссылки алфавитного указателя с их пагинациями
+         */
         symUrls.addAll(itUrls);
-        //Ищем ссылки на производителей
+        /**
+        Ищем ссылки на производителей
+         */
         Map<String, ProdUrl> prodUrls = producersUrls.findAllProducersUrls(symUrls);
-//        System.out.println("ProdUrls.size() = " + prodUrls.size());
-        //Выбираем производителей, совпадающий с переданным списком
+        /**
+        Выбираем производителей, совпадающий с переданным списком
+         */
         Map<String, ProdUrl> cleanProducersUrls = producersAlianceFilter.filter(prodUrls, producers);
         System.out.println("cleanProducersUrls.size() = " + cleanProducersUrls.size());
-//        Находим все ссылки на товары на всех страницах производителей, включая пагинацию
-//        List<GoodUrl> goodUrls = apiAllProdGoods.findAllProdGoodsUris(cleanProducersUrls);
-//        List<GoodUrl> existGoodUrls = goodUrlRepositoryJpa.findAll();
-//        Собираем информацию о товарах
+        /**Находим все ссылки на товары на всех страницах производителей, включая пагинацию, для этого
+         разбиваем поиск по одному производителю, сначала проверяем, что такой производитель еще не записан в БД,
+         значит еще его данные еще парсили.
+         Собираем информацию о товарах
+         */
         cleanProducersUrls.entrySet().forEach(entry ->
                 {
                         if (goodUrlRepositoryJpa.findUrlsByProducerClean(entry.getKey()) == 0) {
